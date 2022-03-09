@@ -80,6 +80,9 @@ img {
     background-color: #fff;
     margin-bottom: 1em;
 }
+#task{
+    padding-inline-start: .7em;
+}
 
 .box {
     background-color: #FFF;
@@ -113,7 +116,7 @@ img {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     color: hsl(236, 9%, 61%);
-    /* box-shadow: 0px 5px 2.5px  rgba(0,0,0,.1); */
+
 }
 
 .states {
@@ -138,4 +141,36 @@ img {
 .dlt-btn {
     width: 12.5px;
     height: 12.5px;
+}
+
+@media (min-width: 880px ){
+   .hero {
+       height: 30vh;
+   }
+
+    .container {
+        max-width: 50%;
+    }
+
+    .todo > p {
+        min-width: 92%;
+    }
+
+    .dlt-btn {
+        visibility: hidden;
+    }
+
+    .todos-footer {
+        position: relative;
+    }
+
+    .states {
+        background-color: transparent;
+        position: relative;
+        top:-55.5px;
+    }
+
+    .order-list {
+        margin-top: 0;
+    }
 }
