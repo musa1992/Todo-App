@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+}
+
+*::after, *::before {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    background-color: hsl(0, 0%, 98%);
+}
+
+input {
+    border: none;
+    
+}
+
+input:focus {
+    outline: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.row {
+    display: flex;
+}
+
+.border-rd {
+    border-radius: 5px;
+}
+
+.util-box {
+   
+}
+
+.main {
+    position: relative;
+}
+
+.hero {
+    height: 20vh;
+}
+
+.hero > img {
+    height: 100%;
+}
+
+.todo-container {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    font-size: .8rem;
+}
+
+.container {
+    width: 90%;
+    margin-inline: auto;
+}
+
+.heading {
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: #FFF;
+}
+
+.input {
+    padding-block: 1em;
+    padding-inline: .8em;
+    background-color: #fff;
+    margin-bottom: 1em;
+}
+
+.box {
+    background-color: #FFF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.todo {
+    padding-block: 1.3em;
+    padding-inline: .8em;
+    align-items: center;
+    border-bottom: 1px solid grey;   
+    color: hsl(235, 19%, 35%);
+}
+
+.todo > p {
+    
+    padding-inline-start: .7em;
+    min-width: 85%;
+}
+
+
+
+.num-items {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFF;
+    margin-bottom: .75em;
+    padding-inline: .8em;
+    padding-block: 1.3em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: hsl(236, 9%, 61%);
+    /* box-shadow: 0px 5px 2.5px  rgba(0,0,0,.1); */
+}
+
+.states {
+    background-color: #FFF;
+    justify-content: center ;
+    align-items: center;
+    padding-block: 1.3em;
+    font-weight: 700;
+    color: hsl(236, 9%, 61%);
+}
+
+.states > * + * {
+    padding-left: 1em;
+}
+
+.order-list {
+    margin-top: 2em;
+    text-align: center;
+    color: hsl(236, 9%, 61%);
+}
+
+.dlt-btn {
+    width: 12.5px;
+    height: 12.5px;
+}
