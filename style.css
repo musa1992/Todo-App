@@ -155,20 +155,48 @@ img {
     .todo > p {
         min-width: 92%;
     }
+    .todo:hover {
+        cursor: pointer;
+
+    }
 
     .dlt-btn {
         visibility: hidden;
     }
+    .todo:hover .dlt-btn{
+        visibility: visible;
+    }
+    .done-task-input {
+        cursor: pointer;
+    }
+
+
+    
 
     .todos-footer {
         position: relative;
     }
 
+    
+
     .states {
         background-color: transparent;
         position: relative;
+        margin-inline: auto;
+        width: 50%;
         top:-55.5px;
     }
+
+    .clear-complete {
+        cursor: pointer;
+    }
+
+    .states > p:hover{
+        cursor: pointer;
+        color: black;
+    }
+
+
 
     .order-list {
         margin-top: 0;
