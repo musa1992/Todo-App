@@ -43,6 +43,10 @@ img {
 
 .hero {
     height: 20vh;
+    background-image: url('images/bg-mobile-light.jpg');
+    background-size: cover;
+    background-position: center;
+    
 }
 
 .hero > img {
@@ -82,6 +86,7 @@ img {
 }
 #task{
     padding-inline-start: .7em;
+    
 }
 
 .box {
@@ -101,7 +106,13 @@ img {
 .todo > p {
     
     padding-inline-start: .7em;
+    max-width: 85%;
     min-width: 85%;
+}
+
+.line-through {
+    color: hsl(236, 60%, 92%);
+    text-decoration: line-through;
 }
 
 

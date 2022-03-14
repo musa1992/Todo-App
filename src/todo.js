@@ -14,8 +14,16 @@ const todoFactory = (task)=>{
         status = change
     }
 
+    let serialize = ()=>{
+        let properties = {
+            task: getTask(),
+            status: getStatus()
+        }
+        return properties
+    }
+
     return {
-        getTask, getStatus, setStatus
+        getTask, getStatus, setStatus, serialize
     }
 }
 
