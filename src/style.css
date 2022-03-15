@@ -8,7 +8,7 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
-    background-color: hsl(0, 0%, 98%);
+    /* background-color: hsl(0, 0%, 98%); */
 }
 
 input {
@@ -25,6 +25,60 @@ img {
     display: block;
 }
 
+/*** light mode colors ****/
+
+.bg-color-light{
+    background-color: hsl(0, 0%, 98%); /**put on body **/
+}
+.input-light {
+    background-color: #FFF;
+}
+
+.box-light {
+    background-color: #FFF;
+}
+
+.todo-light {
+    color: hsl(235, 19%, 35%);;
+}
+.num-items-light{
+    background-color: #FFF;
+    color: hsl(236, 9%, 61%);
+}
+
+.states-light {
+    color: #FFF;
+    background-color: #FFF;
+}
+/*** dark-mode colors ***/
+.bg-color-dark {
+    background-color: hsl(235, 21%, 11%);
+}
+
+.input-dark {
+    background-color: hsl(235, 24%, 19%);
+}
+
+.box-dark {
+    background-color: hsl(235, 24%, 19%);
+}
+
+.todo-dark {
+    color: hsl(234, 39%, 85%)
+}
+
+.num-items-dark {
+    background-color: hsl(235, 24%, 19%);
+    color: hsl(234, 11%, 52%);
+}
+
+.states-dark{
+    color: hsl(234, 11%, 52%);
+    background-color: hsl(235, 24%, 19%);
+}
+
+/*******************************************/
+
 .row {
     display: flex;
 }
@@ -33,9 +87,6 @@ img {
     border-radius: 5px;
 }
 
-.util-box {
-   
-}
 
 .main {
     position: relative;
@@ -75,13 +126,13 @@ img {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 6px;
-    color: #FFF;
+    /* color: #FFF; */
 }
 
 .input {
     padding-block: 1em;
     padding-inline: .8em;
-    background-color: #fff;
+    /* background-color: #fff; */
     margin-bottom: 1em;
 }
 #task{
@@ -90,7 +141,7 @@ img {
 }
 
 .box {
-    background-color: #FFF;
+    /* background-color: #FFF; */
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -100,7 +151,7 @@ img {
     padding-inline: .8em;
     align-items: center;
     border-bottom: 1px solid grey;   
-    color: hsl(235, 19%, 35%);
+    /* color: hsl(235, 19%, 35%); */
 }
 
 .todo > p {
@@ -120,23 +171,27 @@ img {
 .num-items {
     display: flex;
     justify-content: space-between;
-    background-color: #FFF;
+    /* background-color: #FFF; */
     margin-bottom: .75em;
     padding-inline: .8em;
     padding-block: 1.3em;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    color: hsl(236, 9%, 61%);
+    /* color: hsl(236, 9%, 61%); */
 
 }
 
+.active {
+    color: hsl(220, 98%, 61%);
+}
+
 .states {
-    background-color: #FFF;
+    /* background-color: #FFF; */
     justify-content: center ;
     align-items: center;
     padding-block: 1.3em;
     font-weight: 700;
-    color: hsl(236, 9%, 61%);
+    /* color: hsl(236, 9%, 61%); */
 }
 
 .states > * + * {
