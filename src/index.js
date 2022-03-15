@@ -41,6 +41,11 @@ if (window.localStorage.getItem('index')=== null){
     window.localStorage.setItem('index', '0');
 }
 
+window.onload= ()=>{
+    allBtn.click()
+   
+}
+
 function ActiveTodos(){
     let totalItems = parseInt(localStorage.getItem('index'))
     for (let index = 1; index <= totalItems; index++) {
@@ -63,6 +68,7 @@ function CompletedTodos(){
             const element = JSON.parse(localStorage.getItem(index));
             if (element.status === "Complete"){
                 let el = createTodoElement(element.task)
+                el.classList.add('line-through')
                 el.setAttribute('data-id',index)
                 todos.appendChild(el)
             } 
@@ -78,6 +84,9 @@ function AllTodos(){
             const element = JSON.parse(localStorage.getItem(index));
             let el = createTodoElement(element.task)
             el.setAttribute('data-id',index)
+            if (element.status === "Complete"){
+                el.classList.add('line-through')
+            }
             todos.appendChild(el)
         }
         
@@ -147,16 +156,25 @@ todos.addEventListener('click', (e)=>{
 })
 
 activeBtn.addEventListener('click',()=>{
+    completeBtn.classList.remove('active')
+    allBtn.classList.remove('active')
+    activeBtn.classList.add('active')
     removeTodos(todos)
     ActiveTodos()
 })
 
 completeBtn.addEventListener('click',()=>{
+    activeBtn.classList.remove('active')
+    allBtn.classList.remove('active')
+    completeBtn.classList.add('active')
     removeTodos(todos)
     CompletedTodos()
 })
 
 allBtn.addEventListener('click',()=>{
+    activeBtn.classList.remove('active')
+    completeBtn.classList.remove('active')
+    allBtn.classList.add('active')
     removeTodos(todos)
     AllTodos()
 })
