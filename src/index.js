@@ -1,5 +1,6 @@
 import { todoFactory } from "./todo";
 import { createTodoElement } from "./todoUserInterface";
+import { setMode } from "./interfaceMode";
 import './style.css';
 
 import { parentContainer } from "./todoContainer";
@@ -45,6 +46,10 @@ window.onload= ()=>{
     allBtn.click()
    
 }
+
+
+
+
 
 function ActiveTodos(){
     let totalItems = parseInt(localStorage.getItem('index'))
@@ -182,6 +187,8 @@ allBtn.addEventListener('click',()=>{
 clearCompleteBtn.addEventListener('click', ()=>{
     clearCompletedTodos()
 })
+
+setMode('dark')
 
 
 
