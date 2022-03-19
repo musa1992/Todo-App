@@ -3,7 +3,7 @@ import { createTodoElement } from "./todoUserInterface";
 import { setMode } from "./interfaceMode";
 import './style.css';
 
-import { parentContainer } from "./todoContainer";
+import { parentContainer, changeModeImage } from "./todoContainer";
 
 
 const main = document.getElementById('main')
@@ -36,6 +36,7 @@ let activeBtn =  main.querySelector('#active')
 let completeBtn = main.querySelector('#complete')
 
 let clearCompleteBtn = main.querySelector('.clear-complete')
+let toggle = main.querySelector('#toggle')
 let numOfActiveItems = main.querySelector("#num-active-items")
 
 if (window.localStorage.getItem('index')=== null){
@@ -44,11 +45,9 @@ if (window.localStorage.getItem('index')=== null){
 
 window.onload= ()=>{
     allBtn.click()
+    setMode('light')
    
 }
-
-
-
 
 
 function ActiveTodos(){
@@ -188,7 +187,13 @@ clearCompleteBtn.addEventListener('click', ()=>{
     clearCompletedTodos()
 })
 
-setMode('dark')
+toggle.addEventListener('click', ()=>{   
+    changeModeImage(toggle)
+    let mode = toggle.getAttribute('data-mode')
+    setMode(mode)
+    
+})
+
 
 
 

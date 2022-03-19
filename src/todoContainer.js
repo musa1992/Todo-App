@@ -1,4 +1,5 @@
 import DarkLightModeBtn from './images/icon-moon.svg'
+import LightModeBtn from './images/icon-sun.svg'
 import { createInput } from './todoUserInterface'
 
 function div(){
@@ -12,11 +13,25 @@ function createHeader(){
     let logo = div()
     logo.innerHTML = '<p class="title" >TODO</p>'
     let modeBtn = div()
+    modeBtn.id = 'toggle'
+    modeBtn.setAttribute('data-mode', 'light')
     let btn = new Image()
     btn.src = DarkLightModeBtn
     modeBtn.appendChild(btn)
     heading.append(logo,modeBtn)
     return heading
+}
+
+function changeModeImage(div){
+    let img = div.firstElementChild
+    let mode = div.getAttribute('data-mode')
+    if (mode === 'light'){
+        div.setAttribute('data-mode', 'dark')
+        img.src = LightModeBtn
+    }else {
+        div.setAttribute('data-mode', 'light')
+        img.src = DarkLightModeBtn
+    }
 }
 
 function taskInput(){
@@ -102,5 +117,5 @@ function parentContainer(){
 }
 
 export {
-    parentContainer
+    parentContainer, changeModeImage
 }
