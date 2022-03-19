@@ -1,3 +1,8 @@
+import HeroImageMobileDark from './images/bg-mobile-dark.jpg'
+import HeroImageMobileLight from './images/bg-mobile-light.jpg'
+import HeroImageDesktopDark from './images/bg-desktop-dark.jpg'
+import HeroImageDesktopLight from './images/bg-desktop-light.jpg'
+
 function setMode(mode){
     getBody(mode)
     getInput(mode)
@@ -6,6 +11,33 @@ function setMode(mode){
     getStates(mode)
     getTodoElement(mode)
    
+}
+
+function setHeroImage(mode){
+    let hero = document.querySelector('.hero')
+    let img = new Image()
+    let mediaQuery = window.matchMedia("(min-width: 880px)")
+   
+    if (mediaQuery.matches && mode === 'light'){
+        img.src = HeroImageDesktopLight
+       
+    }
+    if (mediaQuery.matches && mode === 'dark'){
+        img.src = HeroImageDesktopDark
+       
+    }
+    if (!mediaQuery.matches && mode === 'light'){
+        img.src = HeroImageMobileLight
+    }
+    if (!mediaQuery.matches && mode === 'dark'){
+        img.src = HeroImageMobileDark
+    }
+    // console.log(hero.firstChild)
+    if (hero.firstChild !== null){
+        hero.removeChild(hero.firstChild)
+    }
+    hero.appendChild(img)
+    // console.log(hero.firstChild)
 }
 
 function getBody(mode){
@@ -81,5 +113,5 @@ function getStates(mode){
 }
 
 export {
-    setMode
+    setMode, setHeroImage
 }

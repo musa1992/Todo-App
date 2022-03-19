@@ -98,15 +98,15 @@ img {
 
 .hero {
     height: 20vh;
-    background-image: url('images/bg-mobile-light.jpg');
+    /* background-image: url('images/bg-mobile-light.jpg'); */
     background-size: cover;
     background-position: center;
     
 }
 
-.hero > img {
+/* .hero > img {
     height: 100%;
-}
+} */
 
 .todo-container {
     position: absolute;
@@ -136,7 +136,6 @@ img {
 .input {
     padding-block: 1em;
     padding-inline: .8em;
-    /* background-color: #fff; */
     margin-bottom: 1em;
 }
 #task{
@@ -145,7 +144,7 @@ img {
 }
 
 .box {
-    /* background-color: #FFF; */
+    
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -155,7 +154,7 @@ img {
     padding-inline: .8em;
     align-items: center;
     border-bottom: 1px solid grey;   
-    /* color: hsl(235, 19%, 35%); */
+
 }
 
 .todo > p {
@@ -175,13 +174,12 @@ img {
 .num-items {
     display: flex;
     justify-content: space-between;
-    /* background-color: #FFF; */
+    
     margin-bottom: .75em;
     padding-inline: .8em;
     padding-block: 1.3em;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    /* color: hsl(236, 9%, 61%); */
 
 }
 
@@ -190,12 +188,12 @@ img {
 }
 
 .states {
-    /* background-color: #FFF; */
+    
     justify-content: center ;
     align-items: center;
     padding-block: 1.3em;
     font-weight: 700;
-    /* color: hsl(236, 9%, 61%); */
+    
 }
 
 .states > * + * {

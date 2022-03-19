@@ -1,18 +1,18 @@
 import { todoFactory } from "./todo";
 import { createTodoElement } from "./todoUserInterface";
-import { setMode } from "./interfaceMode";
+import { setMode, setHeroImage } from "./interfaceMode";
 import './style.css';
 
-import { parentContainer, changeModeImage } from "./todoContainer";
+import { parentContainer, changeModeImage, heroSection } from "./todoContainer";
 
 
 const main = document.getElementById('main')
 
-function heroSection(){
-    let hero = document.createElement('section')
-    hero.classList.add('hero')
-    return hero
-}
+// function heroSection(){
+//     let hero = document.createElement('section')
+//     hero.classList.add('hero')
+//     return hero
+// }
 
 
 
@@ -46,10 +46,9 @@ if (window.localStorage.getItem('index')=== null){
 window.onload= ()=>{
     allBtn.click()
     setMode('light')
-   
+
 }
-
-
+setHeroImage(toggle.getAttribute('data-mode'))
 function ActiveTodos(){
     let totalItems = parseInt(localStorage.getItem('index'))
     for (let index = 1; index <= totalItems; index++) {
@@ -191,6 +190,7 @@ toggle.addEventListener('click', ()=>{
     changeModeImage(toggle)
     let mode = toggle.getAttribute('data-mode')
     setMode(mode)
+    setHeroImage(mode)
     
 })
 

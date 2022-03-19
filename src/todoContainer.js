@@ -1,9 +1,17 @@
 import DarkLightModeBtn from './images/icon-moon.svg'
 import LightModeBtn from './images/icon-sun.svg'
+
+
 import { createInput } from './todoUserInterface'
 
 function div(){
     return document.createElement('div')
+}
+
+function heroSection(){
+    let hero = document.createElement('section')
+    hero.classList.add('hero')
+    return hero
 }
 
 function createHeader(){
@@ -117,5 +125,5 @@ function parentContainer(){
 }
 
 export {
-    parentContainer, changeModeImage
+    parentContainer, changeModeImage, heroSection
 }
