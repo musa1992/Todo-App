@@ -76,7 +76,7 @@ function todosFooter(){
     items.classList.add('num-items')
     let itemsLeft = paragraph()
     itemsLeft.id = "num-active-items"
-    itemsLeft.textContent = "5 items left"
+
     let clear = paragraph()
     clear.textContent = "Clear completed"
     clear.classList.add('clear-complete')

@@ -110,6 +110,7 @@ function clearCompletedTodos(){
 
 function numberOfActiveItems(){
     let activeItems = 0
+    let active = document.querySelector('#num-active-items')
     let totalItems = parseInt(localStorage.getItem('index'))
     for (let index = 1; index <= totalItems; index++) {
         if(localStorage.getItem(index) !== null){
@@ -119,7 +120,15 @@ function numberOfActiveItems(){
             }  
         }      
     }
-    return activeItems
+    if (parseInt(activeItems) > 1){
+        active.textContent = activeItems + " items left"
+    }else if (parseInt(activeItems) === 1){
+        active.textContent = activeItems + " item left"
+    }else{
+        active.textContent = ""
+    }
+     
+
 }
 
 saveTodo.addEventListener('click', ()=>{
@@ -134,6 +143,7 @@ saveTodo.addEventListener('click', ()=>{
     todoInput.value = ""
     localStorage.setItem('index', id)
     localStorage.setItem(id,JSON.stringify(todo.serialize()))
+    numberOfActiveItems()
 
 })
 
@@ -156,6 +166,7 @@ todos.addEventListener('click', (e)=>{
         localStorage.removeItem(id)
         parent.remove()
     }
+    numberOfActiveItems()
 })
 
 activeBtn.addEventListener('click',()=>{
@@ -183,6 +194,13 @@ allBtn.addEventListener('click',()=>{
 })
 
 clearCompleteBtn.addEventListener('click', ()=>{
+    let children = Array.from(todos.children)
+    children.forEach(element => {
+        let elem = JSON.parse(localStorage.getItem(element.dataset.id))
+        if(elem.status === 'Complete'){
+            element.remove()
+        }        
+    });
     clearCompletedTodos()
 })
 
@@ -193,6 +211,8 @@ toggle.addEventListener('click', ()=>{
     setHeroImage(mode)
     
 })
+
+numberOfActiveItems()
 
 
 
