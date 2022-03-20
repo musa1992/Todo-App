@@ -8,13 +8,6 @@ import { parentContainer, changeModeImage, heroSection } from "./todoContainer";
 
 const main = document.getElementById('main')
 
-// function heroSection(){
-//     let hero = document.createElement('section')
-//     hero.classList.add('hero')
-//     return hero
-// }
-
-
 
 function removeTodos(parentElement){
     let child = parentElement.lastElementChild
@@ -38,6 +31,7 @@ let completeBtn = main.querySelector('#complete')
 let clearCompleteBtn = main.querySelector('.clear-complete')
 let toggle = main.querySelector('#toggle')
 let numOfActiveItems = main.querySelector("#num-active-items")
+let draggedItem;
 
 if (window.localStorage.getItem('index')=== null){
     window.localStorage.setItem('index', '0');
@@ -58,6 +52,8 @@ function ActiveTodos(){
             if (element.status === "active"){
                 let el = createTodoElement(element.task)
                 el.setAttribute('data-id',index)
+                el.setAttribute('draggable', true)
+                addListeners(el)
                 todos.appendChild(el)
             }  
         }      
@@ -87,6 +83,8 @@ function AllTodos(){
             const element = JSON.parse(localStorage.getItem(index));
             let el = createTodoElement(element.task)
             el.setAttribute('data-id',index)
+            el.setAttribute('draggable', true)
+            addListeners(el)
             if (element.status === "Complete"){
                 el.classList.add('line-through')
             }
@@ -131,6 +129,41 @@ function numberOfActiveItems(){
 
 }
 
+function addListeners(element){
+    element.addEventListener('dragstart', dragStart)
+    element.addEventListener('dragenter', dragEnter)
+    element.addEventListener('dragleave', dragLeave)
+    element.addEventListener('drag',onDrag)
+    element.addEventListener('drop',onDrop)
+    element.addEventListener('dragover',dragOver)
+
+
+}
+function dragStart(){
+    draggedItem = this
+}
+
+function dragEnter(){
+    
+}
+
+function dragLeave(){
+    
+}
+
+function onDrag(){
+    
+}
+
+function onDrop(){
+    
+    this.parentNode.insertBefore(draggedItem,this)    
+}
+function dragOver(e){
+    e.preventDefault()
+    
+}
+
 saveTodo.addEventListener('click', ()=>{
     let id = parseInt(window.localStorage.getItem('index'))
     id += 1;
@@ -140,6 +173,8 @@ saveTodo.addEventListener('click', ()=>{
     let el = createTodoElement(todo.getTask())
     todos.appendChild(el)
     el.setAttribute('data-id', id)
+    el.setAttribute('draggable', true)
+    addListeners(el)
     todoInput.value = ""
     localStorage.setItem('index', id)
     localStorage.setItem(id,JSON.stringify(todo.serialize()))
@@ -211,6 +246,7 @@ toggle.addEventListener('click', ()=>{
     setHeroImage(mode)
     
 })
+
 
 numberOfActiveItems()
 

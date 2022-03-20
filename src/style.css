@@ -98,15 +98,12 @@ img {
 
 .hero {
     height: 20vh;
-    /* background-image: url('images/bg-mobile-light.jpg'); */
     background-size: cover;
     background-position: center;
     
 }
 
-/* .hero > img {
-    height: 100%;
-} */
+
 
 .todo-container {
     position: absolute;
