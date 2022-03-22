@@ -91,6 +91,11 @@ img {
     border-radius: 5px;
 }
 
+.over {
+    background-color: rgb(112, 112, 112);
+}
+
+
 
 .main {
     position: relative;

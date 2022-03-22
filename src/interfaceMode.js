@@ -3,7 +3,7 @@ import HeroImageMobileLight from './images/bg-mobile-light.jpg'
 import HeroImageDesktopDark from './images/bg-desktop-dark.jpg'
 import HeroImageDesktopLight from './images/bg-desktop-light.jpg'
 
-function setMode(mode){
+function setMode(mode = 'light'){
     getBody(mode)
     getInput(mode)
     getBoxElement(mode)

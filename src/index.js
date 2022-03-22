@@ -33,13 +33,22 @@ let toggle = main.querySelector('#toggle')
 let numOfActiveItems = main.querySelector("#num-active-items")
 let draggedItem;
 
-if (window.localStorage.getItem('index')=== null){
-    window.localStorage.setItem('index', '0');
-}
+
 
 window.onload= ()=>{
     allBtn.click()
-    setMode('light')
+    
+    if (window.localStorage.getItem('index')=== null){
+        window.localStorage.setItem('index', '0');
+    }
+    if (window.localStorage.getItem('index')!== null){
+        changeModeImage(toggle)
+        toggle.setAttribute('data-mode', localStorage.getItem('mode'))
+        setMode(localStorage.getItem('mode'))
+    }else{
+        setMode()
+    }
+   
 
 }
 setHeroImage(toggle.getAttribute('data-mode'))
@@ -139,16 +148,23 @@ function addListeners(element){
 
 
 }
+
+function insertAfter(newNode, existingNode){
+    existingNode.parentNode.insertBefore(newNode,existingNode.nextSibling);
+}
 function dragStart(){
     draggedItem = this
 }
 
 function dragEnter(){
     
+    if (this !== draggedItem){
+        this.classList.add('over')
+    }
 }
 
 function dragLeave(){
-    
+    this.classList.remove('over')
 }
 
 function onDrag(){
@@ -156,8 +172,18 @@ function onDrag(){
 }
 
 function onDrop(){
+    let todos = document.querySelectorAll('.todo')
+    let length = document.querySelectorAll('.todo').length-1
+    if (this === todos[length]){
+        insertAfter(draggedItem,this)
+    }else if (this === todos[1]){
+        insertAfter(draggedItem,this)
+    }
+    else{
+        this.parentNode.insertBefore(draggedItem,this) 
+    }
+    this.classList.remove('over')
     
-    this.parentNode.insertBefore(draggedItem,this)    
 }
 function dragOver(e){
     e.preventDefault()
@@ -242,6 +268,7 @@ clearCompleteBtn.addEventListener('click', ()=>{
 toggle.addEventListener('click', ()=>{   
     changeModeImage(toggle)
     let mode = toggle.getAttribute('data-mode')
+    localStorage.setItem('mode', mode)
     setMode(mode)
     setHeroImage(mode)
     
